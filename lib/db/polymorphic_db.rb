@@ -15,6 +15,10 @@ module KyotoCabinet
       def []=(key, value)
         self.set(key, value)
       end
+
+      def clear
+        super
+      end
     end
   end
 end
