@@ -2,7 +2,7 @@ module KyotoCabinet
   module Db
     class MemoryHash < PolymorphicDb
       def initialize(*options)
-        @kc_db_pointer = LibKyotoCabinet::kcdbnew
+        self.new
         self.open!(KyotoCabinet::MEMORY_HASH, *options)
       end
     end

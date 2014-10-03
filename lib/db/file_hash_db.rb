@@ -10,9 +10,9 @@ module KyotoCabinet
           file_path << KyotoCabinet::FILE_HASH.to_s
         end
 
-        @kc_db_pointer = LibKyotoCabinet::kcdbnew
         @file_path = file_path
 
+        self.new
         self.open!(@file_path, *options)
       end
     end

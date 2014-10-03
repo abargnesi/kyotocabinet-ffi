@@ -4,7 +4,7 @@ module KyotoCabinet
       include Db
 
       def initialize(path, options = {})
-        @kc_db_pointer = LibKyotoCabinet::kcdbnew
+        self.new
         self.open!(path, options)
       end
 
