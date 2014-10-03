@@ -1,13 +1,15 @@
-require "minitest/autorun"
-require "minitest/unit"
+require 'rubygems'
+require 'bundler'
+Bundler.setup
 
+require "minitest/autorun"
 require 'kyotocabinet'
 require 'tempfile'
 
-class FileHashTest < Minitest::Unit::TestCase
+class FileHashTest < Minitest::Test
 
   def test_paths
-    file = Tempfile.new('db')
+    file = Tempfile.new(['db', '.kch'])
     begin
       db = KyotoCabinet::Db::FileHash.new file.path, :writer, :create
       assert db.file_path.end_with? '.kch'
@@ -21,7 +23,7 @@ class FileHashTest < Minitest::Unit::TestCase
   end
 
   def test_full
-    file = Tempfile.new('db.kch')
+    file = Tempfile.new(['db', '.kch'])
     begin
       db = KyotoCabinet::Db::FileHash.new file.path, :writer, :create
       assert_equal 0, db.last_error_code

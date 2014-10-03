@@ -1,9 +1,12 @@
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+
 require "minitest/autorun"
 require "minitest/unit"
-
 require 'kyotocabinet'
 
-class MemoryHashTest < Minitest::Unit::TestCase
+class MemoryHashTest < Minitest::Test
 
   def test_full
     db = KyotoCabinet::Db::MemoryHash.new :writer, :create

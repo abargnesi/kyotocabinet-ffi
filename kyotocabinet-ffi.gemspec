@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.require_paths            = ['lib']
 
   spec.add_dependency             'ffi',  '~> 1.9'
+  spec.add_development_dependency 'minitest', '~> 5.4'
   spec.add_development_dependency 'rake', '~> 10.3'
 end
 # vim: ts=2 sw=2:
