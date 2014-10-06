@@ -3,6 +3,7 @@ language: ruby
 before_install:
   - sudo add-apt-repository -y "ppa:adrian-wilkins/kyoto-cabinet"
   - sudo apt-get update
+  - sudo apt-cache search kyotocabinet
   - sudo apt-get install kyotocabinet
 rvm:
   - 1.9.2
