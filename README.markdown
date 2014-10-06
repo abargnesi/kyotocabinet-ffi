@@ -11,14 +11,14 @@ Currently it provides the PolymorphicDb with MemoryHash and FileHash subclasses.
 requirements
 ------------
 
-- No runtime dependencies.
 - Works on MRI (*>= 1.9.2*), JRuby (*1.9 mode*), and Rubinius.
+- No runtime dependencies (except ffi gem on MRI).
 
 design
 ------
 
 - Supports polymorphic database with type-specific database classes for readability.
-- Database classes can be treated like a ruby hash.
+- Database classes can be treated like a ruby Hash.
 - Common database calls (e.g. open, get, etc.) are provided in KyotoCabinet::Db.
 - Methods ending with ``!`` can raise exceptions.
 - Implemented using [FFI](https://github.com/ffi/ffi) to support MRI,
@@ -58,3 +58,8 @@ ensure
   db.close! if db
 end
 ```
+
+license
+-------
+
+[MIT](http://opensource.org/licenses/MIT)
