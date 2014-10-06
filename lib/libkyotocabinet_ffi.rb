@@ -51,7 +51,11 @@ module LibKyotoCabinet
       begin
         ffi_lib "kyotocabinet"
       rescue LoadError
-        ffi_lib "libkyotocabinet.so"
+        begin
+          ffi_lib "libkyotocabinet.so"
+        ensure
+          ffi_lib "libkyotocabinet.so.16"
+        end
       end
     end
   end
