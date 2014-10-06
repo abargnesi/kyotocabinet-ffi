@@ -3,11 +3,43 @@
 module LibKyotoCabinet
 
   class << self
+
+    def mri?
+      defined?(RUBY_DESCRIPTION) && (/^ruby/ =~ RUBY_DESCRIPTION)
+    end
+
+    def jruby?
+      defined?(RUBY_PLATFORM) && ("java" == RUBY_PLATFORM)
+    end
+
+    def rubinius?
+      defined?(RUBY_ENGINE) && ("rbx" == RUBY_ENGINE)
+    end
+
     # @api_private
     # Determine FFI constant for this ruby engine.
     def find_ffi
-      require "ffi"
-      ::FFI
+      if defined?(RUBY_ENGINE) && RUBY_ENGINE == "rbx"
+        if const_defined? "::Rubinius::FFI"
+          ::Rubinius::FFI
+        elsif const_defined? "::FFI"
+          ::FFI
+        else
+          require "ffi"
+          ::FFI
+        end
+      else # mri, jruby, etc
+        require "ffi"
+        ::FFI
+      end
+    end
+
+    # @api_private
+    # Extend with the correct ffi implementation.
+    def load_ffi
+      ffi_module = LibKyotoCabinet::find_ffi
+      extend ffi_module::Library
+      ffi_module
     end
 
     # @api_private
@@ -25,7 +57,7 @@ module LibKyotoCabinet
   end
 
   # Constant holding the FFI module for this ruby engine.
-  FFI = LibKyotoCabinet::find_ffi
+  FFI = LibKyotoCabinet::load_ffi
   LibKyotoCabinet::load_libkyotocabinet
 
   # mode options

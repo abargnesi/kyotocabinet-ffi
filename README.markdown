@@ -5,6 +5,12 @@ A FFI wrapper to the [Kyoto Cabinet](http://fallabs.com/kyotocabinet/)'s [C inte
 
 Currently it provides the PolymorphicDb with MemoryHash and FileHash subclasses.
 
+requirements
+------------
+
+- No runtime dependencies.
+- Works on MRI (*>= 1.9.2*), JRuby (*1.9 mode*), and Rubinius.
+
 design
 ------
 
@@ -12,6 +18,8 @@ design
 - Database classes can be treated like a ruby hash.
 - Common database calls (e.g. open, get, etc.) are provided in KyotoCabinet::Db.
 - Methods ending with ``!`` can raise exceptions.
+- Implemented using [FFI](https://github.com/ffi/ffi) to support MRI,
+  JRuby, and Rubinius.
 
 usage
 -----
