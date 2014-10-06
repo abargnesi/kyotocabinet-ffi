@@ -36,10 +36,12 @@ class FileHashTest < Minitest::Test
         start.next
       end
 
+      assert !db.empty?
       assert_equal 100, db.size
 
       clear_result = db.clear
       assert clear_result, "clear error: #{db.last_error_message} (#{db.last_error_code})"
+      assert db.empty?
       assert_equal 0, db.size
 
       close_result = db.close

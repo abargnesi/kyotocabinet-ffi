@@ -16,6 +16,10 @@ module KyotoCabinet
         self.set(key, value)
       end
 
+      def empty?
+        self.size <= 0
+      end
+
       def clear
         super
       end
