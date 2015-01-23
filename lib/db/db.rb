@@ -16,6 +16,36 @@ module KyotoCabinet
   DIR_HASH          = :".kcd"
   DIR_TREE          = :".kcf"
 
+  MEMORY_DB_TYPE = [
+    MEMORY_HASH,
+    MEMORY_TREE,
+    MEMORY_STASH,
+    MEMORY_CACHE_HASH,
+    MEMORY_CACHE_TREE
+  ]
+
+  FILE_DB_TYPE = [
+    FILE_HASH,
+    FILE_TREE,
+    FILE_PLAIN_TEXT,
+    DIR_HASH,
+    DIR_TREE
+  ]
+
+  DEFAULT_TEMP_PREFIX = 'kyoto-db-'
+
+  def self.match_memorydb_type? value
+    return false unless value
+    value_s = value.to_s
+    MEMORY_DB_TYPE.any? { |ext| value_s == ext.to_s }
+  end
+
+  def self.match_filedb_type? value
+    return false unless value
+    value_s = value.to_s
+    FILE_DB_TYPE.any? { |ext| value_s.end_with? ext.to_s }
+  end
+
   module Db
 
     def new
