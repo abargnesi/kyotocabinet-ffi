@@ -1,5 +1,7 @@
 module KyotoCabinet
   module Db
+
+    # deprecated - use PolymorphicDb directly
     class MemoryHash < PolymorphicDb
       def initialize(*options)
         self.new

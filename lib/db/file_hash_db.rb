@@ -1,5 +1,7 @@
 module KyotoCabinet
   module Db
+
+    # deprecated - use PolymorphicDb directly
     class FileHash < PolymorphicDb
       attr_reader :file_path
 
