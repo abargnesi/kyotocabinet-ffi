@@ -1,3 +1,6 @@
+require 'pathname'
+require 'fileutils'
+
 module KyotoCabinet
   module Db
     class PolymorphicDb
@@ -57,21 +60,9 @@ module KyotoCabinet
             fail ArgumentError.new(msg)
           end
 
-          if [KyotoCabinet::DIR_HASH, KyotoCabinet::DIR_TREE].include?(ext.to_sym)
-            require 'tmpdir'
-            prefix = prefix || DEFAULT_TEMP_PREFIX
-            tmp_location = Dir.mktmpdir([prefix, ext.to_s])
-            Dir.delete tmp_location
-
-            tmp_location
-          else
-            require 'tempfile'
-            prefix = prefix || DEFAULT_TEMP_PREFIX
-            tmp_location = Tempfile.new([prefix, ext.to_s]).path
-            File.delete tmp_location
-
-            tmp_location
-          end
+          epoch_millis = (Time.now.to_f * 1000).to_i
+          prefix = prefix || DEFAULT_TEMP_PREFIX
+          (Pathname(Dir.tmpdir) + "#{prefix}-#{epoch_millis}#{ext}").to_s
       end
     end
   end
