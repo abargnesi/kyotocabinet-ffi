@@ -32,7 +32,7 @@ module KyotoCabinet
     DIR_TREE
   ]
 
-  DEFAULT_TEMP_PREFIX = 'kyoto-db-'
+  DEFAULT_TEMP_PREFIX = 'kyoto-db'
 
   def self.match_memorydb_type? value
     return false unless value
