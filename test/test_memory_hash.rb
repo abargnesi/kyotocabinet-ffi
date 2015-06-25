@@ -4,7 +4,7 @@ Bundler.setup
 
 require "minitest/autorun"
 require "minitest/unit"
-require 'kyotocabinet'
+require 'kyotocabinet_ffi'
 
 class MemoryHashTest < Minitest::Test
 

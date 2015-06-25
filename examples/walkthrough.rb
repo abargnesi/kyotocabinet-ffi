@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 
-require 'kyotocabinet'
+require 'kyotocabinet_ffi'
 
 # Create an in-memory database.
 db = KyotoCabinet::Db::MemoryHash.new :writer, :create

@@ -3,7 +3,7 @@ require 'bundler'
 Bundler.setup
 
 require "minitest/autorun"
-require 'kyotocabinet'
+require 'kyotocabinet_ffi'
 require 'tempfile'
 
 class FileHashTest < Minitest::Test
