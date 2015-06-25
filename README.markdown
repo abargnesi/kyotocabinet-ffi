@@ -1,5 +1,4 @@
 [![Gem Version](https://badge.fury.io/rb/kyotocabinet-ffi.svg)](http://badge.fury.io/rb/kyotocabinet-ffi)
-
 [![Build
 Status](https://travis-ci.org/abargnesi/kyotocabinet-ffi.svg?branch=master)](https://travis-ci.org/abargnesi/kyotocabinet-ffi)
 
