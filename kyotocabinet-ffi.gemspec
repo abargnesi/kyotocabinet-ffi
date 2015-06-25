@@ -1,6 +1,8 @@
+require './lib/kyotocabinet_ffi/version'
+
 Gem::Specification.new do |spec|
   spec.name                     = 'kyotocabinet-ffi'
-  spec.version                  = '0.0.1'
+  spec.version                  = KyotoCabinet::VERSION
   spec.summary                  = %q{FFI wrapper to Kyoto Cabinet's C API.}
   spec.description              = %q{Kyoto Cabinet provided DBM interface to efficient
                                      key value stores both in-memory and on-disk. This gem

@@ -1,5 +1,0 @@
-require_relative 'libkyotocabinet_ffi'
-require_relative 'db/db'
-require_relative 'db/polymorphic_db'
-require_relative 'db/memory_hash_db'
-require_relative 'db/file_hash_db'
