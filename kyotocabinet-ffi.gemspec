@@ -11,7 +11,6 @@ Gem::Specification.new do |spec|
                                      gsub(%r{^\s+}, ' ').gsub(%r{\n}, '')
   spec.license                  = 'MIT'
   spec.authors                  = ['Anthony Bargnesi']
-  spec.date                     = %q{2014-09-22}
   spec.email                    = %q{abargnesi@gmail.com}
   spec.files                    = Dir.glob('lib/**/*.rb') << 'LICENSE'
   spec.homepage                 = 'https://github.com/abargnesi/kyotocabinet-ffi'
